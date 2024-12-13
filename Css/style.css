@@ -550,7 +550,8 @@ img {
 
 .services-icon {
   display: block;
-  font-size: 3rem;
+  /* font-size: 3rem; */
+  font-size: 48px;
   /* transform: scale(1.5); */
   color: var(--first-color);
   margin-bottom: var(--margin-bottom-0-1);
