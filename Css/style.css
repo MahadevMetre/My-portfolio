@@ -1215,14 +1215,14 @@ img {
 .skills-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
   padding-top: 2rem; /* Space between title and buttons */
 }
 
 .skills-name {
-  padding: 15px 30px;
-  font-size: 16px;
+  padding: 10px 20px;
+  font-size: 14px;
   font-weight: bold;
   background-color: #4CAF50; /* Green background */
   color: white;
