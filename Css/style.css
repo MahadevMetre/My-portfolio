@@ -1254,9 +1254,9 @@ img {
 }
 
 .skills-name:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #713abe; /* Darker blue on hover */
 }
 
 .skills-name:active {
-  background-color: #004085; /* Even darker blue when clicked */
+  background-color: #713abe; /* Even darker blue when clicked */
 }
