@@ -553,6 +553,7 @@ img {
   font-size: 3rem !important;
   color: var(--first-color);
   margin-bottom: var(--margin-bottom-0-1);
+  font-weight: bold;
 }
 
 .services-title {
