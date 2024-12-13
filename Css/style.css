@@ -131,7 +131,7 @@ img {
 }
 
 /* resuable css class  */
-/* .section {
+.section {
   padding: 2rem 0 4rem;
 }
 
@@ -148,7 +148,7 @@ img {
 .section-title,
 .section-subtitle {
   text-align: center;
-} */
+}
 
 /* layout  */
 .container {
@@ -1190,41 +1190,41 @@ img {
 
 
 /* Reusable section styles */
-.section {
+/* .section {
   padding: 2rem 0 4rem;
 }
 
 .section-title {
-  font-size: var(--h1-font-size);  /* Use the variable defined for the section title font size */
+  font-size: var(--h1-font-size); 
   font-weight: bold;
 }
 
 .section-subtitle {
   display: block;
-  font-size: var(--small-font-size); /* Use the variable defined for the subtitle font size */
-  margin-bottom: var(--margin-bottom-0-3); /* Space below the subtitle */
+  font-size: var(--small-font-size); 
+  margin-bottom: var(--margin-bottom-0-3); 
 }
 
 .section-title,
 .section-subtitle {
   text-align: center;
-  color: #333; /* Set a default color for titles */
+  color: #333;  */
 }
 
 /* Specific styles for skills section */
-.skills-content {
+/* .skills-content {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  padding-top: 2rem; /* Space between title and buttons */
+  padding-top: 2rem; 
 }
 
 .skills-name {
   padding: 10px 20px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #4CAF50; /* Green background */
+  background-color: #4CAF50; 
   color: white;
   border: none;
   border-radius: 8px;
@@ -1235,28 +1235,28 @@ img {
 }
 
 .skills-name:hover {
-  transform: translateY(-4px); /* Slight lift effect */
+  transform: translateY(-4px); 
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .skills-name:active {
-  transform: translateY(2px); /* Button pressed effect */
+  transform: translateY(2px); 
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .skills-name:focus {
   outline: none;
-}
+} */
 
 /* Optional color change on hover */
-.skills-name {
-  background-color: #713abe; /* Change background color for more differentiation */
+/* .skills-name {
+  background-color: #713abe; 
 }
 
 .skills-name:hover {
-  background-color: #713abe; /* Darker blue on hover */
+  background-color: #713abe; 
 }
 
 .skills-name:active {
-  background-color: #713abe; /* Even darker blue when clicked */
-}
+  background-color: #713abe; 
+} */
