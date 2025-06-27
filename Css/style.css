@@ -457,16 +457,6 @@ img {
 
 
 /* skills */
-.skills-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;         /* Center items horizontally */
-  gap: 1rem;                       /* Add spacing between items */
-  max-width: 100%;                /* Allow full width */
-  padding: 0 2rem;                /* Add horizontal padding */
-  margin: 0 auto;                 /* Center the container */
-}
-
 .skills-name {
   padding: 0.8rem 1.25rem;
   font-size: var(--small-font-size);
@@ -474,16 +464,20 @@ img {
   border-radius: 5px;
   font-weight: 600;
   color: var(--title-color);
-  transition: 0.3s ease;
+  transition: 0.2s ease-in-out;
 
-  /* Responsive Flex Settings */
-  flex: 1 1 160px;                /* Minimum width of each skill */
-  text-align: center;
+  /* 3D Effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  position: relative;
 }
 
 .skills-name:hover {
   background-color: var(--first-color-alt);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
+
 
 
 
