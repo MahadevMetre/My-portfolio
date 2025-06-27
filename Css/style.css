@@ -456,38 +456,28 @@ img {
 } */
 
 
-.skills-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-/* Frosted Blue Glass Button */
 .skills-name {
   padding: 0.8rem 1.25rem;
   min-width: 140px;
   text-align: center;
   font-size: var(--small-font-size);
   font-weight: 600;
-  color: #0a2540; /* Navy/Dark Blue Text for contrast */
+  color: var(--first-color); /* Matches button and icon colors */
 
   border-radius: 12px;
-  background: rgba(173, 216, 230, 0.25); /* bluish tint (light sky blue) */
+  background: rgba(132, 94, 247, 0.15); /* Faint purple-blue glass tint */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(173, 216, 230, 0.4); /* subtle blue border */
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(132, 94, 247, 0.3); /* Semi-transparent border from --first-color */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
 
   transition: all 0.3s ease;
 }
 
-/* Hover enhancement */
 .skills-name:hover {
-  background: rgba(173, 216, 230, 0.35);
-  box-shadow: 0 0 8px rgba(90, 160, 255, 0.5),
-              0 8px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(132, 94, 247, 0.25);
+  box-shadow: 0 0 8px rgba(132, 94, 247, 0.35), 
+              0 8px 32px rgba(0, 0, 0, 0.08);
   transform: scale(1.03);
 }
 
