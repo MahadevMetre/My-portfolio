@@ -434,7 +434,7 @@ img {
 }
 
 /* skills  */
-.skills-content {
+/* .skills-content {
   display: flex;
   flex-wrap: wrap;
 }
@@ -453,7 +453,43 @@ img {
 
 .skills-name:hover {
   background-color: var(--first-color-alt);
+} */
+
+
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Soft gradient background */
 }
+
+/* Glassmorphism effect for each skill */
+.skills-name {
+  padding: 0.8rem 1.25rem;
+  min-width: 140px;
+  text-align: center;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: #ffffff;
+
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Hover state */
+.skills-name:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
 
 /* qualifi  */
 
