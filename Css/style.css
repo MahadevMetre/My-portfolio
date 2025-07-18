@@ -1371,4 +1371,56 @@ img {
 }
 
 
+.skills-marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.skills-marquee {
+  display: flex;
+  gap: 2rem;
+  animation: scrollLeft 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  height: 120px;
+  padding: 1rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card img {
+  height: 40px;
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+
 
