@@ -616,6 +616,18 @@ img {
   transition: 0.3s;
 }
 
+.services-box {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.services-content.active .services-box {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
 .services-box-content {
   position: relative;
   background-color: var(--container-color);
