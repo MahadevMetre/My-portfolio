@@ -214,3 +214,10 @@ document.querySelectorAll('.services-content').forEach((card) => {
 });
 
 
+// 🔁 Add 3D tilt effect to service cards
+VanillaTilt.init(document.querySelectorAll(".services-content"), {
+  max: 10,
+  speed: 300,
+  glare: true,
+  "max-glare": 0.2,
+});
