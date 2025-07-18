@@ -199,12 +199,18 @@ VANTA.HALO({
   backgroundColor: 0x121212
 });
 
-
-// 🃏 Click to open/flip solitaire card effect
 document.querySelectorAll('.services-content').forEach((card) => {
   card.addEventListener('click', function () {
+    const alreadyActive = this.classList.contains('active');
+
+    // Remove active from all cards
     document.querySelectorAll('.services-content').forEach(c => c.classList.remove('active'));
-    this.classList.add('active');
+
+    // Re-activate only if it wasn't already open
+    if (!alreadyActive) {
+      this.classList.add('active');
+    }
   });
 });
+
 
