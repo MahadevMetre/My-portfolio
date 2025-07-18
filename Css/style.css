@@ -563,25 +563,29 @@ img {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  height: 400px;
+  align-items: flex-start;
+  min-height: 500px; 
 }
 
 .services-content {
   position: absolute;
   width: 260px;
-  height: 340px;
+  min-height: 340px; /* allow initial minimum */
+  max-height: none;  /* allow full expansion */
   padding: 1rem;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   border-radius: 20px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s ease, z-index 0.3s ease;
+  transition: all 0.5s ease;
   transform-origin: center;
   cursor: pointer;
-  overflow: hidden;
   z-index: 1;
+
+  /* allow it to grow when clicked */
+  overflow: visible;
 }
+
 
 /* 🎴 Initial stack with slight rotation */
 .services-content:nth-child(1) {
@@ -608,12 +612,13 @@ img {
   transform: translateX(280px) rotate(0deg);
 }
 
-/* 👆 On click — bring to front and expand */
+/* 🌟 Flip/Expand effect on active card */
 .services-content.active {
   z-index: 10 !important;
-  transform: scale(1.08) translateY(-30px);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1) translateY(-40px) rotate(0deg);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-height: 1000px;
 }
 
 .services-content:hover {
@@ -1318,10 +1323,11 @@ img {
 .services-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   perspective: 1200px;
   gap: 0; /* Overlap */
+  min-height: 500px;  
 }
 
 .services-content {
@@ -1364,11 +1370,5 @@ img {
   z-index: 2;
 }
 
-/* 🌟 Flip/Expand effect on active card */
-.services-content.active {
-  z-index: 10 !important;
-  transform: scale(1.1) translateY(-40px) rotate(0deg);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
+
 
