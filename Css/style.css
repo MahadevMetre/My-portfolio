@@ -642,7 +642,7 @@ img {
   transform: translateX(0.25rem);
 }
 
-.services-box {
+/* .services-box {
   position: fixed;
   top: 0;
   left: 0;
@@ -657,7 +657,7 @@ img {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-}
+} */
 
 .services-box {
   opacity: 0;
@@ -679,14 +679,20 @@ img {
   max-height: 250px;
   overflow-y: auto;
   padding-right: 6px;
-}
-
-.services-box-content {
   position: relative;
   background-color: var(--container-color);
   padding: 1.5rem;
   border-radius: 0.5rem;
 }
+
+.services-box-content::-webkit-scrollbar {
+  width: 6px;
+}
+.services-box-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
 
 .services-box-services {
   row-gap: 1rem;
