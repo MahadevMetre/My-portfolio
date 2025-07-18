@@ -564,11 +564,13 @@ img {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 500px; 
+  flex-wrap: nowrap;
+  height: auto;
+  padding-bottom: 10rem; /* enough space for expanded cards */
 }
 
 .services-content {
-  position: absolute;
+  position: relative;
   width: 260px;
   min-height: 340px; /* allow initial minimum */
   max-height: none;  /* allow full expansion */
@@ -618,7 +620,7 @@ img {
   transform: scale(1.1) translateY(-40px) rotate(0deg);
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  max-height: 1000px;
+  max-height: none;
 }
 
 .services-content:hover {
