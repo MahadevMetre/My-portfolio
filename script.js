@@ -221,3 +221,13 @@ VanillaTilt.init(document.querySelectorAll(".services-content"), {
   glare: true,
   "max-glare": 0.2,
 });
+
+function scrollSkills(direction) {
+  const container = document.getElementById('skillsScroll');
+  const scrollAmount = 300;
+  container.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
