@@ -1371,7 +1371,7 @@ img {
 }
 
 
-/* .skills-marquee-container {
+.skills-marquee-container {
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -1440,7 +1440,7 @@ img {
   object-fit: contain;
   margin-bottom: 0.5rem;
   filter: brightness(1.2);
-} */
+}
 
 /* Your existing styles... */
 
@@ -1448,7 +1448,7 @@ img {
 /* 🎡 Circular 3D Skills Strip  */
 /* ============================= */
 
-.circular-skill-section {
+/* .circular-skill-section {
   padding: 4rem 0;
   background: transparent;
 }
@@ -1513,7 +1513,7 @@ img {
 }
 
 /* 👇 Dynamic rotation for each card, update this via JS or statically if count fixed */
-.circular-card:nth-child(1) { --i: 0; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
+/* .circular-card:nth-child(1) { --i: 0; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
 .circular-card:nth-child(2) { --i: 1; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
 .circular-card:nth-child(3) { --i: 2; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
 .circular-card:nth-child(4) { --i: 3; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
@@ -1542,7 +1542,7 @@ img {
 .circular-card:nth-child(27) { --i: 26; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
 .circular-card:nth-child(28) { --i: 27; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
 .circular-card:nth-child(29) { --i: 28; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
-.circular-card:nth-child(30) { --i: 29; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); }
-
+.circular-card:nth-child(30) { --i: 29; transform: rotateY(calc(var(--i) * 12deg)) translateZ(500px); } */
+ 
 
 
