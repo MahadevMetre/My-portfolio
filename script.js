@@ -178,3 +178,24 @@ let swiperTestimonial = new Swiper(".testimonial-container", {
     },
   },
 });
+
+
+// 🌌 3D Card Tilt
+VanillaTilt.init(document.querySelectorAll(".portfolio-content, .services-content, .skills-name"), {
+  max: 15,
+  speed: 400,
+  glare: true,
+  "max-glare": 0.2,
+});
+
+// 🌠 Vanta Background on Home
+VANTA.HALO({
+  el: "#home",
+  mouseControls: true,
+  touchControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  baseColor: 0x0f0f0f,
+  backgroundColor: 0x121212
+});
+
