@@ -1440,7 +1440,7 @@ img {
 }
 
 .skill-card-front img {
-  height: 150px;
+  height: 250px;
   object-fit: contain;
   filter: brightness(1.2);
 }
