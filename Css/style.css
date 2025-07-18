@@ -1383,16 +1383,22 @@ img {
 }
 
 .skills-slider {
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .skills-track {
   display: flex;
   gap: 2rem;
-  padding: 0 3rem; /* space for arrows */
+  animation: autoScroll 60s linear infinite;
   width: max-content;
+}
+
+
+@keyframes autoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .skill-card {
