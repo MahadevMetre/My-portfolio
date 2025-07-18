@@ -1371,75 +1371,105 @@ img {
 }
 
 
-.skills-marquee-container {
-  overflow: hidden;
+/* ============================= */
+/* 🚀 Updated Horizontal Skills Scroll with Flip & Navigation */
+/* ============================= */
+
+.skills-slider-wrapper {
   position: relative;
+  overflow: hidden;
   width: 100%;
   padding: 2rem 0;
-}
-
-.skills-marquee {
-  display: flex;
-  gap: 2rem;
-  animation: scrollLeft 30s linear infinite;
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 .skills-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  padding: 2rem 0;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .skills-track {
   display: flex;
-  width: max-content;
-  animation: slideRight 40s linear infinite;
   gap: 2rem;
-}
-
-@keyframes slideRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  padding: 0 3rem; /* space for arrows */
+  width: max-content;
 }
 
 .skill-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 140px;
+  perspective: 1000px;
+  width: 140px;
   height: 140px;
-  padding: 1rem;
+  position: relative;
+}
+
+.skill-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.skill-card:hover .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-front,
+.skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
   color: #fff;
   font-weight: 500;
   text-align: center;
-  transition: transform 0.3s ease;
+  padding: 1rem;
 }
 
-.skill-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-}
-
-.skill-card img {
+.skill-card-front img {
   height: 48px;
   object-fit: contain;
-  margin-bottom: 0.5rem;
   filter: brightness(1.2);
+}
+
+.skill-card-back {
+  transform: rotateY(180deg);
+  font-size: 0.9rem;
+}
+
+.skills-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  font-size: 1.5rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.skills-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.skills-arrow.left {
+  left: 0.5rem;
+}
+
+.skills-arrow.right {
+  right: 0.5rem;
 }
 
 /* Your existing styles... */
