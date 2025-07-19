@@ -199,21 +199,6 @@ VANTA.HALO({
   backgroundColor: 0x121212
 });
 
-document.querySelectorAll('.services-content').forEach((card) => {
-  card.addEventListener('click', function () {
-    const alreadyActive = this.classList.contains('active');
-
-    // Remove active from all cards
-    document.querySelectorAll('.services-content').forEach(c => c.classList.remove('active'));
-
-    // Re-activate only if it wasn't already open
-    if (!alreadyActive) {
-      this.classList.add('active');
-    }
-  });
-});
-
-
 // 🔁 Add 3D tilt effect to service cards
 VanillaTilt.init(document.querySelectorAll(".services-content"), {
   max: 10,
