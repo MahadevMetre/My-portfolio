@@ -855,9 +855,9 @@ img {
   color: var(--first-color);
 }
 
-.swiper-container .swiper-pagination-testimonial {
+/* .swiper-container .swiper-pagination-testimonial {
   bottom: 0;
-}
+} */
 /* contact section  */
 .contact-container {
   row-gap: 3rem;
@@ -1280,9 +1280,6 @@ img {
     right: -3.5rem;
   }
 
-  .swiper-container-horizontal > .swiper-pagination-bullets {
-    bottom: -4.5rem;
-  }
 }
 
 
