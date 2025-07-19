@@ -1566,16 +1566,17 @@ img {
 
 
 /* 🔁 Smooth side-to-side sliding animation */
-@keyframes slidePhoneDiagonal {
+@keyframes slideDiagonalUpRight {
   0%, 100% {
-    transform: translate(0, 0);
+    transform: translate(-10px, 10px);  /* bottom-left */
   }
   50% {
-    transform: translate(-10px, -10px); /* slide diagonally up-left */
+    transform: translate(10px, -10px);  /* top-right */
   }
 }
 
 .slide-phone {
-  animation: slidePhoneDiagonal 3s ease-in-out infinite;
+  animation: slideDiagonalUpRight 3s ease-in-out infinite;
 }
+
 
