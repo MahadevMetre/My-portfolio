@@ -1553,3 +1553,87 @@ img {
     transform: none;
   }
 }
+
+
+
+/* 🎯 Skills Carousel - Scaled Glowing Cards */
+.carousel-skill-section {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 0;
+  animation: autoScroll 30s linear infinite;
+  transition: transform 0.3s ease;
+}
+
+.carousel-card {
+  flex: 0 0 120px;
+  height: 120px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  transform-origin: center center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.carousel-card img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+/* 🪄 Glowing + pop on hover */
+.carousel-card:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px #00ffe7;
+  z-index: 2;
+}
+
+/* 🎥 Auto-scroll effect */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Optional: fade sides for depth */
+.carousel-skill-section::before,
+.carousel-skill-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to right, #0d0d0d 0%, transparent 100%);
+}
+.carousel-skill-section::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
