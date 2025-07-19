@@ -227,32 +227,25 @@ window.addEventListener('scroll', function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const serviceButtons = document.querySelectorAll(".services-button");
-  const closeButtons = document.querySelectorAll(".services-box-close");
+document.addEventListener('DOMContentLoaded', () => {
+  const serviceButtons = document.querySelectorAll('.services-button');
+  const serviceContents = document.querySelectorAll('.services-content');
 
   serviceButtons.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      // Toggle active class on the parent .services-content
-      const parent = btn.closest(".services-content");
-      if (parent) {
-        // Close all others first (optional)
-        document.querySelectorAll(".services-content.active").forEach(el => {
-          if (el !== parent) el.classList.remove("active");
-        });
+    btn.addEventListener('click', () => {
+      // First, close all open service boxes
+      serviceContents.forEach((box) => box.classList.remove('active'));
 
-        parent.classList.toggle("active");
-      }
+      // Then open the clicked one
+      serviceContents[index].classList.add('active');
     });
   });
 
-  closeButtons.forEach((closeBtn) => {
-    closeBtn.addEventListener("click", (e) => {
-      const parent = closeBtn.closest(".services-content");
-      if (parent) {
-        parent.classList.remove("active");
-      }
-      e.stopPropagation(); // Prevent bubbling
+  const closeButtons = document.querySelectorAll('.services-box-close');
+
+  closeButtons.forEach((closeBtn, index) => {
+    closeBtn.addEventListener('click', () => {
+      serviceContents[index].classList.remove('active');
     });
   });
 });
