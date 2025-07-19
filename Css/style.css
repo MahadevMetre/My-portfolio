@@ -1581,23 +1581,24 @@ img {
 
 
 :root {
-  --rotate-speed: 40;
+  --rotate-speed: 25; /* Faster rotation */
   --count: 8;
   --easing: cubic-bezier(0.000, 0.37, 1.000, 0.63);
 }
 
 .void {
   width: 100%;
-  max-width: 1024px;
+  max-width: 480px; /* Shrunk */
   margin: auto;
   position: relative;
   aspect-ratio: 1 / 1;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 ul:hover * {
   animation-play-state: paused;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -1607,6 +1608,7 @@ ul {
   aspect-ratio: 1 / 1;
   z-index: 1;
 }
+
 li {
   position: absolute;
   top: 50%;
@@ -1614,68 +1616,77 @@ li {
   width: 100%;
   animation: rotateCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
 }
+
 .card {
-  width: 27%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 16px 24px;
-  gap: 8px;
-  background: #ffffff14;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1),
-              0px 16px 32px rgba(0, 0, 0, 0.1);
+  padding: 12px 14px;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   color: #fff;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
   animation: rotateCCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
   font-family: 'Inter', sans-serif;
 }
 
 .card img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
+  filter: brightness(1.2);
 }
 
 .model-name {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 12px;
   color: #00ffe7;
 }
 
+/* Animation delays */
+li:nth-child(2), li:nth-child(2) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -1s); }
+li:nth-child(3), li:nth-child(3) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -2s); }
+li:nth-child(4), li:nth-child(4) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -3s); }
+li:nth-child(5), li:nth-child(5) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -4s); }
+li:nth-child(6), li:nth-child(6) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -5s); }
+li:nth-child(7), li:nth-child(7) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -6s); }
+li:nth-child(8), li:nth-child(8) .card { animation-delay: calc((var(--rotate-speed)/var(--count)) * -7s); }
+
+/* Circles */
 .center-circle {
   position: absolute;
-  width: 180px;
+  width: 100px;
   aspect-ratio: 1 / 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   background: #1e1e2f;
   border-radius: 50%;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
 }
 .second-circle {
   position: absolute;
-  width: 40%;
+  width: 70%;
   aspect-ratio: 1 / 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: #f5f4fe0f;
+  background: #f5f4fe0a;
   border-radius: 50%;
-  z-index: 0;
 }
 .last-circle {
   position: absolute;
-  width: 66%;
+  width: 100%;
   aspect-ratio: 1 / 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: #f5f4fe07;
+  background: #f5f4fe06;
   border-radius: 50%;
-  z-index: 0;
 }
 .crop {
   -webkit-mask-image: linear-gradient(
@@ -1695,7 +1706,7 @@ li {
   width: 50%;
   background: radial-gradient(
     100% 50% at 100% 50%,
-    rgba(0, 255, 255, 0.25) 0%,
+    rgba(0, 255, 255, 0.2) 0%,
     rgba(0, 255, 255, 0.0) 100%
   );
   animation: pulseGlow 6s linear infinite alternate;
@@ -1718,20 +1729,6 @@ li {
   }
 }
 @keyframes pulseGlow {
-  from {
-    background-size: 60%;
-  }
-  to {
-    background-size: 100%;
-  }
-}
-
-/* Optional: responsive scaling */
-@media (max-width: 768px) {
-  .card {
-    width: 45%;
-  }
-  .center-circle {
-    width: 120px;
-  }
+  from { background-size: 60%; }
+  to { background-size: 100%; }
 }
