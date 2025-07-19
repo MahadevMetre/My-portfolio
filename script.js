@@ -231,7 +231,6 @@ function scrollSkills(direction) {
   });
 }
 
-// comment
 window.addEventListener('scroll', function () {
   const scrollY = window.scrollY;
   document.querySelector('.layer-back').style.transform =
