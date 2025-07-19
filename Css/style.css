@@ -15,6 +15,7 @@
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --body-color: hsl(var(--hue-color), 60%, 99%);
   --container-color: #fff;
+  --first-color: #007bff;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
@@ -621,6 +622,7 @@ img {
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   max-height: none;
+  border: 2px solid red !important;
 }
 
 .services-content:hover {
@@ -672,15 +674,18 @@ img {
   max-height: 0;
   transition: all 0.4s ease;
   overflow: hidden;
+  margin-top: 0;
 }
 
 /* When card is active, show the full box */
+.services-box.active-box,
 .services-content.active .services-box {
   opacity: 1;
   pointer-events: auto;
   max-height: 1000px;
   margin-top: 1rem;
 }
+
 
 .services-box-content {
   max-height: 250px;
@@ -690,6 +695,7 @@ img {
   background-color: var(--container-color);
   padding: 1.5rem;
   border-radius: 0.5rem;
+  border: 2px solid var(--first-color); 
 }
 
 .services-box-content::-webkit-scrollbar {
@@ -707,6 +713,7 @@ img {
 
 .services-box-list {
   display: flex;
+  margin-bottom: 1rem;
 }
 
 .services-box-title {
@@ -722,6 +729,13 @@ img {
   font-size: 1.5rem;
   color: var(--first-color);
   cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 10;
+}
+
+.services-box-close:hover {
+  color: #dc3545;
 }
 
 .services-list-icon {
