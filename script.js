@@ -227,21 +227,32 @@ window.addEventListener('scroll', function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const serviceButtons = document.querySelectorAll(".services-button");
-  const closeIcons = document.querySelectorAll(".services-box-close");
+  const closeButtons = document.querySelectorAll(".services-box-close");
 
-  serviceButtons.forEach((btn) => {
+  serviceButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      const parentCard = btn.closest(".services-content");
-      parentCard.classList.toggle("active");
+      // Toggle active class on the parent .services-content
+      const parent = btn.closest(".services-content");
+      if (parent) {
+        // Close all others first (optional)
+        document.querySelectorAll(".services-content.active").forEach(el => {
+          if (el !== parent) el.classList.remove("active");
+        });
+
+        parent.classList.toggle("active");
+      }
     });
   });
 
-  closeIcons.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      const parentCard = icon.closest(".services-content");
-      parentCard.classList.remove("active");
+  closeButtons.forEach((closeBtn) => {
+    closeBtn.addEventListener("click", (e) => {
+      const parent = closeBtn.closest(".services-content");
+      if (parent) {
+        parent.classList.remove("active");
+      }
+      e.stopPropagation(); // Prevent bubbling
     });
   });
 });
