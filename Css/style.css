@@ -1530,7 +1530,7 @@ img {
   background: transparent;
 }
 
-/* Fallback static parallax on mobile */
+/* Fallback static parallax on mobiles */
 @media (max-device-width: 768px) {
   .space-layer {
     position: absolute;
