@@ -1206,3 +1206,36 @@ img {
     bottom: -4.5rem;
   }
 }
+
+.skills-slider-wrapper {
+  position: relative;
+}
+
+.skills-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.skills-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.skills-arrow.left {
+  left: -1.5rem;
+}
+
+.skills-arrow.right {
+  right: -1.5rem;
+}
+
