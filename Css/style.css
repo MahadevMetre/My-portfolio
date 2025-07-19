@@ -1288,7 +1288,7 @@ img {
 
 
 /* 🔲 3D Glassmorphism Card Styling */
-.portfolio-content,
+/* .portfolio-content,
 .services-content {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
@@ -1302,7 +1302,33 @@ img {
 .services-content:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+} */
+
+
+/* Updated 3D Glassmorphism Card Styling (No Side Shadows) */
+.portfolio-content,
+.services-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+
+  /* ✅ Reduce vertical shadow only */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+.portfolio-content:hover,
+.services-content:hover {
+  transform: scale(1.03);
+
+  /* ✅ Subtle glow, no harsh side shadows */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+
+
 
 /* 🧊 Skills floating style */
 .skills-name {
