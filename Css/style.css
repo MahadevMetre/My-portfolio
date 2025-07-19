@@ -1411,6 +1411,20 @@ img {
   height: 140px;
   position: relative;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center;
+}
+
+.skill-card.glow {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #00ffe7, 0 0 30px rgba(0, 255, 231, 0.3);
+  z-index: 10;
+}
+
+.skill-card.shrink {
+  transform: scale(0.85);
+  opacity: 0.7;
+  z-index: 1;
 }
 
 .skill-card-inner {
