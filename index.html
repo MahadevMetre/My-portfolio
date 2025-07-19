@@ -6,7 +6,6 @@
     <title>Mahadev</title>
     <link rel="stylesheet" href="Libraries/swiper-bundle.min.css" />
     <link rel="stylesheet" href="Css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   </head>
   <body><section class="space-section"><div class="space-layer layer-back"></div><div class="space-layer layer-mid"></div><div class="space-layer layer-front"></div><div class="section-content">
     <!-- header  --> 
@@ -198,17 +197,14 @@
         </div>
       </section>
 
-<!-- skills and qualification -->
-<section class="skills section" id="skills">
-  <h2 class="section-title">Skills</h2>
-  <span class="section-subtitle">My Technical Skills</span>
-
-  <!-- Swiper-based Skills Carousel -->
-  <div class="swiper mySkillsSwiper">
-    <div class="swiper-wrapper">
-
-        <!-- skill-1 -->
-      <div class="swiper-slide">
+      <!-- skills and qualification  -->
+      <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <span class="section-subtitle">My Technical Skills</span>
+  <div class="skills-slider-wrapper">
+    <button class="skills-arrow left" onclick="scrollSkills(-1)">‹</button>
+    <div class="skills-slider" id="skillsScroll">
+      <div class="skills-track">
         <div class="skill-card">
           <div class="skill-card-inner">
             <div class="skill-card-front">
@@ -219,9 +215,7 @@
             </div>
           </div>
         </div>
-      </div>  
-
-      <div class="swiper-slide">
+        
         <div class="skill-card">
           <div class="skill-card-inner">
             <div class="skill-card-front">
@@ -232,9 +226,7 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="swiper-slide">
         <div class="skill-card">
           <div class="skill-card-inner">
             <div class="skill-card-front">
@@ -245,7 +237,6 @@
             </div>
           </div>
         </div>
-      </div>
         
         <div class="skill-card">
           <div class="skill-card-inner">
@@ -1643,26 +1634,7 @@
 
 <!-- 🎬 Optional: Lottie Animations -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper(".mySkillsSwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    loop: true,
-    coverflowEffect: {
-      rotate: 30,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-      slideShadows: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
+
+
   </body>
 </html>
