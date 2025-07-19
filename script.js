@@ -231,3 +231,14 @@ function scrollSkills(direction) {
   });
 }
 
+
+window.addEventListener('scroll', function () {
+  const scrollY = window.scrollY;
+  document.querySelector('.layer-back').style.transform =
+    `translateY(${scrollY * 0.2}px) scale(1.5)`;
+  document.querySelector('.layer-mid').style.transform =
+    `translateY(${scrollY * 0.4}px) scale(1.3)`;
+  document.querySelector('.layer-front').style.transform =
+    `translateY(${scrollY * 0.6}px) scale(1.1)`;
+});
+
