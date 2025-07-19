@@ -1399,7 +1399,6 @@ img {
   padding-bottom: 1rem;
 }
 
-
 @keyframes autoScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1411,19 +1410,7 @@ img {
   height: 140px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-origin: center;
-}
-
-.skill-card.glow .skill-card-inner {
-  transform: scale(1.2) rotateY(180deg);
-}
-
-
-.skill-card.shrink {
-  transform: scale(0.85);
-  opacity: 0.7;
-  z-index: 1;
 }
 
 .skill-card-inner {
@@ -1436,6 +1423,18 @@ img {
 
 .skill-card:hover .skill-card-inner {
   transform: rotateY(180deg) scale(1.05);
+}
+
+.skill-card.glow .skill-card-inner {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #00ffe7, 0 0 30px rgba(0, 255, 231, 0.3);
+  z-index: 10;
+}
+
+.skill-card.shrink .skill-card-inner {
+  transform: scale(0.85);
+  opacity: 0.7;
+  z-index: 1;
 }
 
 .skill-card-front,
@@ -1455,10 +1454,11 @@ img {
   font-weight: 500;
   text-align: center;
   padding: 1rem;
+  overflow: hidden;
 }
 
 .skill-card-front img {
-  height: 250px;
+  height: 80px;
   object-fit: contain;
   filter: brightness(1.2);
 }
@@ -1498,141 +1498,14 @@ img {
   right: 1.5rem;
 }
 
-
-
-.space-section {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.space-layer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 200vh; /* double viewport height */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform: translateZ(0) scale(1);
-  pointer-events: none;
-  z-index: -3;
-}
-
-/* Layer styling — use actual space images */
-.layer-back {
-  background-image: url('Assets/space/stars-back.png');
-  transform: translateZ(-500px) scale(1.5);
-  z-index: -3;
-}
-.layer-mid {
-  background-image: url('Assets/space/nebula-mid.png');
-  transform: translateZ(-300px) scale(1.3);
-  z-index: -2;
-}
-.layer-front {
-  background-image: url('Assets/space/asteroids-front.png');
-  transform: translateZ(-100px) scale(1.1);
-  z-index: -1;
-}
-
-/* Content sits in front */
-.space-section .section-content {
-  position: relative;
-  z-index: 0;
-  background: transparent;
-}
-
-/* Fallback static parallax on mobiles */
-@media (max-device-width: 768px) {
-  .space-layer {
-    position: absolute;
-    height: auto;
-    background-attachment: scroll;
-    transform: none;
-  }
-}
-
-
-
-/* 🎯 Skills Carousel - Scaled Glowing Cards */
-.carousel-skill-section {
-  padding: 4rem 0;
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-.carousel-wrapper {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 2rem;
-  padding: 2rem 0;
-  animation: autoScroll 30s linear infinite;
-  transition: transform 0.3s ease;
-}
-
-.carousel-card {
-  flex: 0 0 120px;
-  height: 120px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  cursor: pointer;
-  transform-origin: center center;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.carousel-card img {
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
-  filter: brightness(1.2);
-}
-
-/* 🪄 Glowing + pop on hover */
-.carousel-card:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 25px #00ffe7;
-  z-index: 2;
-}
-
-/* 🎥 Auto-scroll effect */
-@keyframes autoScroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Optional: fade sides for depth */
 .carousel-skill-section::before,
 .carousel-skill-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 80px;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(to right, #0d0d0d 0%, transparent 100%);
-}
-.carousel-skill-section::after {
-  right: 0;
-  transform: scaleX(-1);
+  display: none; /* Removed black fading overlay */
 }
 
+/* Remove any extra border or outline that might be black */
+.skill-card,
+.skill-card-front,
+.skill-card-back {
+  border: none;
+}
