@@ -1415,11 +1415,10 @@ img {
   transform-origin: center;
 }
 
-.skill-card.glow {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px #00ffe7, 0 0 30px rgba(0, 255, 231, 0.3);
-  z-index: 10;
+.skill-card.glow .skill-card-inner {
+  transform: scale(1.2) rotateY(180deg);
 }
+
 
 .skill-card.shrink {
   transform: scale(0.85);
@@ -1436,7 +1435,7 @@ img {
 }
 
 .skill-card:hover .skill-card-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) scale(1.05);
 }
 
 .skill-card-front,
