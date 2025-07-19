@@ -230,45 +230,55 @@ window.addEventListener('scroll', function () {
 // Fixed Services Modal Functionality
 document.addEventListener('DOMContentLoaded', () => {
   const serviceButtons = document.querySelectorAll('.services-button');
-  const serviceBoxes = document.querySelectorAll('.services-box');
+  const serviceContents = document.querySelectorAll('.services-content');
   const closeButtons = document.querySelectorAll('.services-box-close');
+
+  console.log('Services initialized:', {
+    buttons: serviceButtons.length,
+    contents: serviceContents.length,
+    closeButtons: closeButtons.length
+  });
 
   // Open service modal
   serviceButtons.forEach((btn, index) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      console.log(`Button ${index} clicked`);
       
       // Close all other modals first
-      serviceBoxes.forEach((box) => {
-        box.classList.remove('active-box');
+      serviceContents.forEach((content) => {
+        content.classList.remove('active');
       });
       
-      // Open the corresponding modal
-      if (serviceBoxes[index]) {
-        serviceBoxes[index].classList.add('active-box');
+      // Open the corresponding modal by adding 'active' class to services-content
+      if (serviceContents[index]) {
+        serviceContents[index].classList.add('active');
+        console.log(`Opened modal ${index}`);
       }
     });
   });
 
   // Close service modal
-  closeButtons.forEach((closeBtn, index) => {
+  closeButtons.forEach((closeBtn) => {
     closeBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      console.log('Close button clicked');
       
-      // Find the parent service box and close it
-      const serviceBox = closeBtn.closest('.services-box');
-      if (serviceBox) {
-        serviceBox.classList.remove('active-box');
+      // Find the parent services-content and remove active class
+      const serviceContent = closeBtn.closest('.services-content');
+      if (serviceContent) {
+        serviceContent.classList.remove('active');
+        console.log('Modal closed');
       }
     });
   });
 
-  // Close modal when clicking outside
-  serviceBoxes.forEach((box) => {
-    box.addEventListener('click', (e) => {
-      if (e.target === box) {
-        box.classList.remove('active-box');
-      }
-    });
+  // Close modal when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      serviceContents.forEach((content) => {
+        content.classList.remove('active');
+      });
+    }
   });
 });
