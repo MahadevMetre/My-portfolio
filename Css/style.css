@@ -1563,3 +1563,22 @@ img {
     transform: none;
   }
 }
+
+
+/* 🔁 Smooth side-to-side sliding animation */
+@keyframes slidePhone {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px); /* move slightly left */
+  }
+}
+
+.slide-phone {
+  animation: slidePhone 3s ease-in-out infinite;
+}
+
+.slide-phone:hover {
+  animation-play-state: paused;
+}
