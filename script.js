@@ -228,57 +228,43 @@ window.addEventListener('scroll', function () {
 
 
 // Fixed Services Modal Functionality
+// ADD THIS DEBUG CODE TO YOUR SCRIPT.JS
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('=== SERVICES DEBUG START ===');
+  
   const serviceButtons = document.querySelectorAll('.services-button');
   const serviceContents = document.querySelectorAll('.services-content');
   const closeButtons = document.querySelectorAll('.services-box-close');
-
-  console.log('Services initialized:', {
+  
+  console.log('Found elements:', {
     buttons: serviceButtons.length,
     contents: serviceContents.length,
     closeButtons: closeButtons.length
   });
-
-  // Open service modal
+  
+  // Log button clicks
   serviceButtons.forEach((btn, index) => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault();
       console.log(`Button ${index} clicked`);
+      console.log('Event prevented:', e.defaultPrevented);
       
-      // Close all other modals first
-      serviceContents.forEach((content) => {
-        content.classList.remove('active');
-      });
-      
-      // Open the corresponding modal by adding 'active' class to services-content
-      if (serviceContents[index]) {
-        serviceContents[index].classList.add('active');
-        console.log(`Opened modal ${index}`);
-      }
+      // Check if active class gets added
+      setTimeout(() => {
+        const hasActive = serviceContents[index]?.classList.contains('active');
+        console.log(`Content ${index} has active class:`, hasActive);
+        
+        if (hasActive) {
+          const box = serviceContents[index].querySelector('.services-box');
+          const styles = getComputedStyle(box);
+          console.log('Box styles:', {
+            opacity: styles.opacity,
+            maxHeight: styles.maxHeight,
+            pointerEvents: styles.pointerEvents
+          });
+        }
+      }, 100);
     });
   });
-
-  // Close service modal
-  closeButtons.forEach((closeBtn) => {
-    closeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('Close button clicked');
-      
-      // Find the parent services-content and remove active class
-      const serviceContent = closeBtn.closest('.services-content');
-      if (serviceContent) {
-        serviceContent.classList.remove('active');
-        console.log('Modal closed');
-      }
-    });
-  });
-
-  // Close modal when pressing Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      serviceContents.forEach((content) => {
-        content.classList.remove('active');
-      });
-    }
-  });
+  
+  console.log('=== SERVICES DEBUG END ===');
 });
