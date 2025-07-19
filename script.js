@@ -241,3 +241,22 @@ window.addEventListener('scroll', function () {
     `translateY(${scrollY * 0.6}px) scale(1.1)`;
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const serviceButtons = document.querySelectorAll(".services-button");
+  const closeIcons = document.querySelectorAll(".services-box-close");
+
+  serviceButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const parentCard = btn.closest(".services-content");
+      parentCard.classList.toggle("active");
+    });
+  });
+
+  closeIcons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      const parentCard = icon.closest(".services-content");
+      parentCard.classList.remove("active");
+    });
+  });
+});
