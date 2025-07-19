@@ -1580,3 +1580,158 @@ img {
 }
 
 
+:root {
+  --rotate-speed: 40;
+  --count: 8;
+  --easing: cubic-bezier(0.000, 0.37, 1.000, 0.63);
+}
+
+.void {
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  margin-top: 3rem;
+}
+
+ul:hover * {
+  animation-play-state: paused;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  z-index: 1;
+}
+li {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  animation: rotateCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
+}
+.card {
+  width: 27%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 24px;
+  gap: 8px;
+  background: #ffffff14;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1),
+              0px 16px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  animation: rotateCCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
+  font-family: 'Inter', sans-serif;
+}
+
+.card img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.model-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #00ffe7;
+}
+
+.center-circle {
+  position: absolute;
+  width: 180px;
+  aspect-ratio: 1 / 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e1e2f;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+.second-circle {
+  position: absolute;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #f5f4fe0f;
+  border-radius: 50%;
+  z-index: 0;
+}
+.last-circle {
+  position: absolute;
+  width: 66%;
+  aspect-ratio: 1 / 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #f5f4fe07;
+  border-radius: 50%;
+  z-index: 0;
+}
+.crop {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1)
+  );
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  background: radial-gradient(
+    100% 50% at 100% 50%,
+    rgba(0, 255, 255, 0.25) 0%,
+    rgba(0, 255, 255, 0.0) 100%
+  );
+  animation: pulseGlow 6s linear infinite alternate;
+}
+
+@keyframes rotateCW {
+  from {
+    transform: translate3d(0px, -50%, -1px) rotate(-45deg);
+  }
+  to {
+    transform: translate3d(0px, -50%, 0px) rotate(-315deg);
+  }
+}
+@keyframes rotateCCW {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
+}
+@keyframes pulseGlow {
+  from {
+    background-size: 60%;
+  }
+  to {
+    background-size: 100%;
+  }
+}
+
+/* Optional: responsive scaling */
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+  .center-circle {
+    width: 120px;
+  }
+}
