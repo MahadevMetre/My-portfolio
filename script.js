@@ -241,33 +241,3 @@ window.addEventListener('scroll', function () {
     `translateY(${scrollY * 0.6}px) scale(1.1)`;
 });
 
-
-document.querySelectorAll('.skill-card').forEach((card, index, allCards) => {
-  card.addEventListener('mouseenter', () => {
-    allCards.forEach((c, i) => {
-      c.classList.remove('glow', 'shrink');
-      if (i === index) {
-        c.classList.add('glow');
-      } else if (i === index - 1 || i === index + 1) {
-        c.classList.add('shrink');
-      }
-    });
-  });
-
-  card.addEventListener('mouseleave', () => {
-    allCards.forEach(c => c.classList.remove('glow', 'shrink'));
-  });
-
-  card.addEventListener('click', () => {
-    allCards.forEach((c, i) => {
-      c.classList.remove('glow', 'shrink');
-      if (i === index) {
-        c.classList.add('glow');
-      } else if (i === index - 1 || i === index + 1) {
-        c.classList.add('shrink');
-      }
-    });
-  });
-});
-
-

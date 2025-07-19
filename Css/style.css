@@ -1399,6 +1399,7 @@ img {
   padding-bottom: 1rem;
 }
 
+
 @keyframes autoScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1410,7 +1411,6 @@ img {
   height: 140px;
   position: relative;
   cursor: pointer;
-  transform-origin: center;
 }
 
 .skill-card-inner {
@@ -1422,19 +1422,7 @@ img {
 }
 
 .skill-card:hover .skill-card-inner {
-  transform: rotateY(180deg) scale(1.05);
-}
-
-.skill-card.glow .skill-card-inner {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px #00ffe7, 0 0 30px rgba(0, 255, 231, 0.3);
-  z-index: 10;
-}
-
-.skill-card.shrink .skill-card-inner {
-  transform: scale(0.85);
-  opacity: 0.7;
-  z-index: 1;
+  transform: rotateY(180deg);
 }
 
 .skill-card-front,
@@ -1454,11 +1442,10 @@ img {
   font-weight: 500;
   text-align: center;
   padding: 1rem;
-  overflow: hidden;
 }
 
 .skill-card-front img {
-  height: 80px;
+  height: 250px;
   object-fit: contain;
   filter: brightness(1.2);
 }
@@ -1498,14 +1485,57 @@ img {
   right: 1.5rem;
 }
 
-.carousel-skill-section::before,
-.carousel-skill-section::after {
-  display: none; /* Removed black fading overlay */
+
+
+.space-section {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Remove any extra border or outline that might be black */
-.skill-card,
-.skill-card-front,
-.skill-card-back {
-  border: none;
+.space-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 200vh; /* double viewport height */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  pointer-events: none;
+  z-index: -3;
+}
+
+/* Layer styling — use actual space images */
+.layer-back {
+  background-image: url('Assets/space/stars-back.png');
+  transform: translateZ(-500px) scale(1.5);
+  z-index: -3;
+}
+.layer-mid {
+  background-image: url('Assets/space/nebula-mid.png');
+  transform: translateZ(-300px) scale(1.3);
+  z-index: -2;
+}
+.layer-front {
+  background-image: url('Assets/space/asteroids-front.png');
+  transform: translateZ(-100px) scale(1.1);
+  z-index: -1;
+}
+
+/* Content sits in front */
+.space-section .section-content {
+  position: relative;
+  z-index: 0;
+  background: transparent;
+}
+
+/* Fallback static parallax on mobile */
+@media (max-device-width: 768px) {
+  .space-layer {
+    position: absolute;
+    height: auto;
+    background-attachment: scroll;
+    transform: none;
+  }
 }
