@@ -201,10 +201,15 @@
       <section class="skills section" id="skills">
         <h2 class="section-title">Skills</h2>
         <span class="section-subtitle">My Technical Skills</span>
-  <div class="skills-slider-wrapper">
-    <button class="skills-arrow left" onclick="scrollSkills(-1)">‹</button>
+
+
+          <!-- ▶ First row: Left to Right -->
+  <div class="skills-slider-wrapper ltr">
+   <button class="skills-arrow left" onclick="scrollSkills(-1)">‹</button>
     <div class="skills-slider" id="skillsScroll">
-      <div class="skills-track">
+      <div class="skills-track scroll-left">
+
+        
         <div class="skill-card">
           <div class="skill-card-inner">
             <div class="skill-card-front">
@@ -549,6 +554,12 @@
 
 
 <!--       repeat -->
+
+  <!-- ▶ Second row: Right to Left -->
+  <div class="skills-slider-wrapper rtl">
+    <div class="skills-slider">
+      <div class="skills-track scroll-right">
+        <!-- Skill Cards duplicated or alternates -->
 
         <div class="skill-card">
           <div class="skill-card-inner">
@@ -902,7 +913,7 @@
 
 
 
-
+<!-- ------------------- -->
       
       <section class="qualification section">
         <h2 class="section-title">Qualification</h2>
