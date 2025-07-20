@@ -1417,10 +1417,31 @@ img {
 
 .skills-track {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   animation: autoScroll 60s linear infinite;
   width: max-content;
   padding-bottom: 1rem;
+}
+
+
+/* Scroll left-to-right */
+.scroll-left {
+  animation: scroll-left 25s linear infinite;
+}
+
+/* Scroll right-to-left */
+.scroll-right {
+  animation: scroll-right 25s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
 }
 
 
@@ -1431,8 +1452,8 @@ img {
 
 .skill-card {
   perspective: 1000px;
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   position: relative;
   cursor: pointer;
 }
@@ -1469,14 +1490,14 @@ img {
 }
 
 .skill-card-front img {
-  height: 250px;
+  height: 60px;
   object-fit: contain;
   filter: brightness(1.2);
 }
 
 .skill-card-back {
   transform: rotateY(180deg);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #111;
   background: rgba(255, 255, 255, 0.85);
 }
