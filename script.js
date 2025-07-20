@@ -51,7 +51,7 @@ const boxViews = document.querySelectorAll(".services-box"),
   boxCloses = document.querySelectorAll(".services-box-close");
 
 let box = function (boxClick) {
-  boxViews[boxClick].parentElement.classList.add("active"); // targets .services-content
+  boxViews[boxClick].classList.add("active-box");
 };
 
 boxBtns.forEach((boxBtn, i) => {
@@ -60,10 +60,13 @@ boxBtns.forEach((boxBtn, i) => {
   });
 });
 
-document.querySelectorAll('.services-content.active').forEach((el) => {
-  el.classList.remove('active');
+boxCloses.forEach((boxClose) => {
+  boxClose.addEventListener("click", () => {
+    boxViews.forEach((boxView) => {
+      boxView.classList.remove("active-box");
+    });
+  });
 });
-
 
 //scroll section active link
 const sections = document.querySelectorAll("section[id]");
