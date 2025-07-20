@@ -1405,7 +1405,7 @@ img {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   background-color: transparent;
 }
 
@@ -1418,7 +1418,9 @@ img {
 .skills-track {
   display: flex;
   gap: 1.5rem;
+  animation: autoScroll 60s linear infinite;
   width: max-content;
+  padding-bottom: 1rem;
 }
 
 
@@ -1443,13 +1445,17 @@ img {
 }
 
 
+@keyframes autoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .skill-card {
-  width: 100px;
-  height: 100px;
+  perspective: 1000px;
+  width: 110px;
+  height: 110px;
   position: relative;
   cursor: pointer;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
 }
 
 .skill-card-inner {
@@ -1469,10 +1475,10 @@ img {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1480,13 +1486,11 @@ img {
   color: #000;
   font-weight: 500;
   text-align: center;
-  padding: 0.5rem;
-  font-size: 0.75rem;
+  padding: 1rem;
 }
 
 .skill-card-front img {
   height: 60px;
-  width: 60px;
   object-fit: contain;
   filter: brightness(1.2);
 }
@@ -1495,7 +1499,7 @@ img {
   transform: rotateY(180deg);
   font-size: 0.8rem;
   color: #111;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .skills-arrow {
@@ -1505,17 +1509,17 @@ img {
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   z-index: 10;
-  backdrop-filter: blur(4px);
-  font-size: 1.2rem;
+  backdrop-filter: blur(6px);
+  font-size: 1.5rem;
   border-radius: 8px;
   transition: background 0.3s;
 }
 
 .skills-arrow:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .skills-arrow.left {
@@ -1523,7 +1527,7 @@ img {
 }
 
 .skills-arrow.right {
-  right: 0.5rem;
+  right: 1.5rem;
 }
 
 
