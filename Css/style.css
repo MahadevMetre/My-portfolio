@@ -559,21 +559,21 @@ img {
 }
 
 /* services  */
-/* .services-container {
+.services-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: nowrap;
   height: auto;
-  padding-bottom: 10rem; 
-} */
+  padding-bottom: 10rem; /* enough space for expanded cards */
+}
 
-/* .services-content {
+.services-content {
   position: relative;
   width: 260px;
-  min-height: 340px; 
-  max-height: none;  
+  min-height: 340px; /* allow initial minimum */
+  max-height: none;  /* allow full expansion */
   padding: 1rem;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
@@ -584,12 +584,13 @@ img {
   cursor: pointer;
   z-index: 1;
 
- 
+  /* allow it to grow when clicked */
   overflow: visible;
-} */
+}
 
 
-/* .services-content:nth-child(1) {
+/* 🎴 Initial stack with slight rotation */
+.services-content:nth-child(1) {
   transform: rotate(-6deg);
   z-index: 1;
 }
@@ -602,6 +603,7 @@ img {
   z-index: 1;
 }
 
+/* 🖱️ On hover — fan out into a horizontal line */
 .services-container:hover .services-content:nth-child(1) {
   transform: translateX(-280px) rotate(0deg);
 }
@@ -610,7 +612,7 @@ img {
 }
 .services-container:hover .services-content:nth-child(3) {
   transform: translateX(280px) rotate(0deg);
-} */
+}
 
 /* 🌟 Flip/Expand effect on active card */
 .services-content.active {
@@ -1343,54 +1345,56 @@ img {
 }
 
 
+/* 🃏 Base stack layout */
 .services-container {
-  position: relative;
-  width: 100%;
-  min-height: 600px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  perspective: 1000px;
-  overflow: visible;
-  padding-bottom: 5rem;
+  align-items: flex-start;
+  position: relative;
+  perspective: 1200px;
+  gap: 0; /* Overlap */
+  min-height: 500px;  
 }
 
 .services-content {
   position: absolute;
-  top: 50%;
-  left: 50%;
   width: 260px;
-  height: 340px;
+  min-height: 340px;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   border-radius: 20px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s ease;
+  transition: all 0.5s ease;
   transform-origin: center;
   cursor: pointer;
-  overflow: visible;
+  z-index: 1;
+
+  /* ✅ New additions */
+  max-height: 600px;
+  overflow: auto;
 }
 
-/* 🃏 Initial stacked card layout */
-.services-content:nth-child(1) { transform: translate(-50%, -50%) rotate(-9deg); z-index: 1; }
-.services-content:nth-child(2) { transform: translate(-50%, -50%) rotate(-6deg); z-index: 2; }
-.services-content:nth-child(3) { transform: translate(-50%, -50%) rotate(-3deg); z-index: 3; }
-.services-content:nth-child(4) { transform: translate(-50%, -50%) rotate(0deg);  z-index: 4; }
-.services-content:nth-child(5) { transform: translate(-50%, -50%) rotate(3deg);  z-index: 3; }
-.services-content:nth-child(6) { transform: translate(-50%, -50%) rotate(6deg);  z-index: 2; }
-.services-content:nth-child(7) { transform: translate(-50%, -50%) rotate(9deg);  z-index: 1; }
-.services-content:nth-child(8) { transform: translate(-50%, -50%) rotate(12deg); z-index: 1; }
 
-/* 🖱️ Fan out cards horizontally on container hover */
-.services-container:hover .services-content:nth-child(1) { transform: translate(-50%, -50%) translateX(-840px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(2) { transform: translate(-50%, -50%) translateX(-600px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(3) { transform: translate(-50%, -50%) translateX(-360px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(4) { transform: translate(-50%, -50%) translateX(-120px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(5) { transform: translate(-50%, -50%) translateX(120px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(6) { transform: translate(-50%, -50%) translateX(360px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(7) { transform: translate(-50%, -50%) translateX(600px) rotate(0deg); }
-.services-container:hover .services-content:nth-child(8) { transform: translate(-50%, -50%) translateX(840px) rotate(0deg); }
+/* 🎴 Initial stack styling for 8 cards */
+.services-content:nth-child(1) { transform: rotate(-9deg); z-index: 1; }
+.services-content:nth-child(2) { transform: rotate(-6deg); z-index: 2; }
+.services-content:nth-child(3) { transform: rotate(-3deg); z-index: 3; }
+.services-content:nth-child(4) { transform: rotate(0deg); z-index: 4; }
+.services-content:nth-child(5) { transform: rotate(3deg); z-index: 3; }
+.services-content:nth-child(6) { transform: rotate(6deg); z-index: 2; }
+.services-content:nth-child(7) { transform: rotate(9deg); z-index: 1; }
+.services-content:nth-child(8) { transform: rotate(12deg); z-index: 1; }
+
+/* 🖱️ On hover — fan out into a horizontal spread */
+.services-container:hover .services-content:nth-child(1) { transform: translateX(-840px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(2) { transform: translateX(-600px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(3) { transform: translateX(-360px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(4) { transform: translateX(-120px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(5) { transform: translateX(120px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(6) { transform: translateX(360px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(7) { transform: translateX(600px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(8) { transform: translateX(840px) rotate(0deg); }
 
 
 
