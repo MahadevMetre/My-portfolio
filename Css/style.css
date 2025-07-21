@@ -1366,7 +1366,7 @@ img {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.6s;
+  transition: transform 0.3s;
 }
 
 .skill-card:hover .skill-card-inner {
