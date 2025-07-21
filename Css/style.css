@@ -1376,25 +1376,26 @@ img {
 }
 
 
-/* 🃏 Position each card slightly rotated and offset */
-.services-content:nth-child(1) {
-  z-index: 3;
-  transform: rotate(-6deg) translateX(-40px);
-}
-.services-content:nth-child(2) {
-  z-index: 2;
-  transform: rotate(0deg) translateY(0px);
-}
-.services-content:nth-child(3) {
-  z-index: 1;
-  transform: rotate(6deg) translateX(40px);
-}
+/* 🎴 Initial stack styling for 8 cards */
+.services-content:nth-child(1) { transform: rotate(-9deg); z-index: 1; }
+.services-content:nth-child(2) { transform: rotate(-6deg); z-index: 2; }
+.services-content:nth-child(3) { transform: rotate(-3deg); z-index: 3; }
+.services-content:nth-child(4) { transform: rotate(0deg); z-index: 4; }
+.services-content:nth-child(5) { transform: rotate(3deg); z-index: 3; }
+.services-content:nth-child(6) { transform: rotate(6deg); z-index: 2; }
+.services-content:nth-child(7) { transform: rotate(9deg); z-index: 1; }
+.services-content:nth-child(8) { transform: rotate(12deg); z-index: 1; }
 
-/* 💫 On hover, cards float out */
-.services-container:hover .services-content {
-  transform: translateY(-20px) rotate(0deg) scale(1.02);
-  z-index: 2;
-}
+/* 🖱️ On hover — fan out into a horizontal spread */
+.services-container:hover .services-content:nth-child(1) { transform: translateX(-840px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(2) { transform: translateX(-600px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(3) { transform: translateX(-360px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(4) { transform: translateX(-120px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(5) { transform: translateX(120px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(6) { transform: translateX(360px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(7) { transform: translateX(600px) rotate(0deg); }
+.services-container:hover .services-content:nth-child(8) { transform: translateX(840px) rotate(0deg); }
+
 
 
 /* ============================= */
