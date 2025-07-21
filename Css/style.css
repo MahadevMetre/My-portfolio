@@ -340,6 +340,19 @@ img {
   font-size: 1rem;
 }
 
+/* buttons  */
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: var(--font-medium);
+}
+.button:hover {
+  background-color: var(--first-color-alt);
+}
+
 .button-icon {
   font-size: 1.25rem;
   margin-left: var(--margin-bottom-0-5);
@@ -1491,63 +1504,3 @@ img {
 }
 
 
-/* might delete */
-
-/* Base button setup */
-.button {
-  display: inline-block;
-  background-color: var(--first-color);
-  color: #fff;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  font-weight: var(--font-medium);
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Glowing neon hover effect */
-.button:hover {
-  animation: neon-glow 1s infinite alternate;
-  box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 30px #00fff7;
-}
-
-/* Optional: Glowing border animation */
-.button::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    #00fff7,
-    transparent
-  );
-  animation: neon-border 2s linear infinite;
-  z-index: -1;
-  opacity: 0.6;
-}
-
-/* Keyframes for glowing pulse */
-@keyframes neon-glow {
-  0% {
-    box-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7, 0 0 15px #00fff7;
-  }
-  100% {
-    box-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7, 0 0 40px #00fff7;
-  }
-}
-
-/* Keyframes for moving neon sweep */
-@keyframes neon-border {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
