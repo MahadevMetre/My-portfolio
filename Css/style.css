@@ -439,53 +439,7 @@ img {
   flex-wrap: wrap;
 }
 
-.skills-name {
-  padding: 0.8rem 1.25rem;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
-  font-size: var(--small-font-size);
-  background: var(--first-color-lighter);
-  border-radius: 5px;
-  font-weight: 600;
-  color: var(--title-color);
-  transition: 0.3s ease;
-}
-
-.skills-name:hover {
-  background-color: var(--first-color-alt);
-}
-
-
-/* .skills-name {
-  padding: 0.8rem 1.25rem;
-  min-width: 140px;
-  text-align: center;
-  font-size: var(--small-font-size);
-  font-weight: 600;
-  color: var(--first-color); 
-
-  border-radius: 12px;
-  background: rgba(132, 94, 247, 0.15); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(132, 94, 247, 0.3); 
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
-
-  transition: all 0.3s ease;
-}
-
-.skills-name:hover {
-  background: rgba(132, 94, 247, 0.25);
-  box-shadow: 0 0 8px rgba(132, 94, 247, 0.35), 
-              0 8px 32px rgba(0, 0, 0, 0.08);
-  transform: scale(1.03);
-} */
-
-
-
-
-/* qualifi  */
-
+/* qualification  */
 .qualification-tabs {
   display: flex;
   justify-content: space-evenly;
@@ -1004,10 +958,6 @@ img {
     width: 180px;
   }
 
-  .skills-name {
-    font-size: var(--small-font-size);
-  }
-
   .qualification-data {
     gap: 0.5rem;
   }
@@ -1324,25 +1274,26 @@ img {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-
-
-
-
 /* 🧊 Skills floating style */
 .skills-name {
   padding: 10px 16px;
+  margin: 6px;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--title-color);
   background: rgba(255, 255, 255, 0.06);
   border-radius: 12px;
-  margin: 6px;
-  transition: transform 0.3s ease;
   display: inline-block;
   backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skills-name:hover {
+  background-color: var(--first-color-alt);
   transform: scale(1.08);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
+
 
 
 /* 🃏 Base stack layout */
@@ -1431,8 +1382,8 @@ img {
 
 .skill-card {
   perspective: 1000px;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   position: relative;
   cursor: pointer;
 }
