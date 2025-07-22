@@ -1342,7 +1342,7 @@ img {
 .skills-track {
   display: flex;
   gap: 2rem;
-  animation: autoScroll 60s linear infinite;
+  animation: autoScroll 40s linear infinite;
   width: max-content;
   padding-bottom: 1rem;
 }
@@ -1403,7 +1403,7 @@ img {
 
 .skill-card-back {
   transform: rotateY(180deg);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: #111;
   background: rgba(255, 255, 255, 0.85);
 }
