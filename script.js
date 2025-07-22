@@ -268,3 +268,31 @@ document.addEventListener('DOMContentLoaded', () => {
   
   console.log('=== SERVICES DEBUG END ===');
 });
+
+
+
+// intifinite scroll
+<script>
+  const skillsTrack = document.getElementById('skillsTrack');
+
+  // Clone all skill cards to simulate infinite scroll
+  const cards = [...skillsTrack.children];
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    skillsTrack.appendChild(clone);
+  });
+
+  let scrollPos = 0;
+  const scrollSpeed = 0.5; // pixels per frame
+
+  function animateScroll() {
+    scrollPos += scrollSpeed;
+    if (scrollPos >= skillsTrack.scrollWidth / 2) {
+      scrollPos = 0; // Reset to start (loop)
+    }
+    skillsTrack.scrollLeft = scrollPos;
+    requestAnimationFrame(animateScroll);
+  }
+
+  animateScroll();
+</script>

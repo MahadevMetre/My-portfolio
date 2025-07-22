@@ -1334,17 +1334,18 @@ img {
 }
 
 .skills-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
 }
 
 .skills-track {
   display: flex;
+  flex-wrap: nowrap;
   gap: 2rem;
-  animation: autoScroll 60s linear infinite;
   width: max-content;
-  padding-bottom: 1rem;
+  scroll-behavior: smooth;
 }
 
 
