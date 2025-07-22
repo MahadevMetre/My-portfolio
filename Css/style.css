@@ -1389,14 +1389,15 @@ img {
   color: #000;
   font-weight: 500;
   text-align: center;
-  padding: 1rem;
+  padding: 0;
 }
 
 .skill-card-front img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* or 'contain' depending on effect */
-  border-radius: 20px; /* optional: matches card */
+  object-fit: cover;        /* ensures the image fills and crops */
+  object-position: center;  /* optional: centers the focal point */
+  border-radius: 20px;      /* keep if you want rounded corners */
   filter: brightness(1.2);
 }
 
