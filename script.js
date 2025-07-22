@@ -178,3 +178,94 @@ let swiperTestimonial = new Swiper(".testimonial-container", {
     },
   },
 });
+
+
+// 🌌 3D Card Tilt
+VanillaTilt.init(document.querySelectorAll(".portfolio-content, .services-content, .skills-name"), {
+  max: 15,
+  speed: 400,
+  glare: true,
+  "max-glare": 0.2,
+});
+
+// 🌠 Vanta Background on Home
+VANTA.HALO({
+  el: "#home",
+  mouseControls: true,
+  touchControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  baseColor: 0x0f0f0f,
+  backgroundColor: 0x121212
+});
+
+// 🔁 Add 3D tilt effect to service cards
+VanillaTilt.init(document.querySelectorAll(".services-content"), {
+  max: 10,
+  speed: 300,
+  glare: true,
+  "max-glare": 0.2,
+});
+
+function scrollSkills(direction) {
+  const container = document.getElementById('skillsScroll');
+  const scrollAmount = 300;
+  container.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
+window.addEventListener('scroll', function () {
+  const scrollY = window.scrollY;
+  document.querySelector('.layer-back').style.transform =
+    `translateY(${scrollY * 0.2}px) scale(1.5)`;
+  document.querySelector('.layer-mid').style.transform =
+    `translateY(${scrollY * 0.4}px) scale(1.3)`;
+  document.querySelector('.layer-front').style.transform =
+    `translateY(${scrollY * 0.6}px) scale(1.1)`;
+});
+
+
+// Fixed Services Modal Functionality
+// ADD THIS DEBUG CODE TO YOUR SCRIPT.JS
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('=== SERVICES DEBUG START ===');
+  
+  const serviceButtons = document.querySelectorAll('.services-button');
+  const serviceContents = document.querySelectorAll('.services-content');
+  const closeButtons = document.querySelectorAll('.services-box-close');
+  
+  console.log('Found elements:', {
+    buttons: serviceButtons.length,
+    contents: serviceContents.length,
+    closeButtons: closeButtons.length
+  });
+  
+  // Log button clicks
+  serviceButtons.forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+      console.log(`Button ${index} clicked`);
+      console.log('Event prevented:', e.defaultPrevented);
+      
+      // Check if active class gets added
+      setTimeout(() => {
+        const hasActive = serviceContents[index]?.classList.contains('active');
+        console.log(`Content ${index} has active class:`, hasActive);
+        
+        if (hasActive) {
+          const box = serviceContents[index].querySelector('.services-box');
+          const styles = getComputedStyle(box);
+          console.log('Box styles:', {
+            opacity: styles.opacity,
+            maxHeight: styles.maxHeight,
+            pointerEvents: styles.pointerEvents
+          });
+        }
+      }, 100);
+    });
+  });
+  
+  console.log('=== SERVICES DEBUG END ===');
+});
+

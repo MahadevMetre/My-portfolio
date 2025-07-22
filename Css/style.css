@@ -340,7 +340,7 @@ img {
   font-size: 1rem;
 }
 
-/* buttons  */
+/* buttonss  */
 .button {
   display: inline-block;
   background-color: var(--first-color);
@@ -439,53 +439,7 @@ img {
   flex-wrap: wrap;
 }
 
-.skills-name {
-  padding: 0.8rem 1.25rem;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
-  font-size: var(--small-font-size);
-  background: var(--first-color-lighter);
-  border-radius: 5px;
-  font-weight: 600;
-  color: var(--title-color);
-  transition: 0.3s ease;
-}
-
-.skills-name:hover {
-  background-color: var(--first-color-alt);
-}
-
-
-/* .skills-name {
-  padding: 0.8rem 1.25rem;
-  min-width: 140px;
-  text-align: center;
-  font-size: var(--small-font-size);
-  font-weight: 600;
-  color: var(--first-color); 
-
-  border-radius: 12px;
-  background: rgba(132, 94, 247, 0.15); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(132, 94, 247, 0.3); 
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
-
-  transition: all 0.3s ease;
-}
-
-.skills-name:hover {
-  background: rgba(132, 94, 247, 0.25);
-  box-shadow: 0 0 8px rgba(132, 94, 247, 0.35), 
-              0 8px 32px rgba(0, 0, 0, 0.08);
-  transform: scale(1.03);
-} */
-
-
-
-
-/* qualifi  */
-
+/* qualification  */
 .qualification-tabs {
   display: flex;
   justify-content: space-evenly;
@@ -560,17 +514,67 @@ img {
 
 /* services  */
 .services-container {
-  gap: 1.5rem;
-  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: auto;
+  padding-bottom: 10rem; /* enough space for expanded cards */
 }
 
 .services-content {
   position: relative;
-  background-color: var(--container-color);
-  padding: 3.5rem 0.5rem 1.25rem 1.5rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;
+  width: 260px;
+  min-height: 340px; /* allow initial minimum */
+  max-height: none;  /* allow full expansion */
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  transform-origin: center;
+  cursor: pointer;
+  z-index: 1;
+
+  /* allow it to grow when clicked */
+  overflow: visible;
+}
+
+
+/* 🎴 Initial stack with slight rotation */
+.services-content:nth-child(1) {
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+.services-content:nth-child(2) {
+  transform: rotate(0deg);
+  z-index: 2;
+}
+.services-content:nth-child(3) {
+  transform: rotate(6deg);
+  z-index: 1;
+}
+
+/* 🖱️ On hover — fan out into a horizontal line */
+.services-container:hover .services-content:nth-child(1) {
+  transform: translateX(-280px) rotate(0deg);
+}
+.services-container:hover .services-content:nth-child(2) {
+  transform: translateX(0px) rotate(0deg);
+}
+.services-container:hover .services-content:nth-child(3) {
+  transform: translateX(280px) rotate(0deg);
+}
+
+/* 🌟 Flip/Expand effect on active card */
+.services-content.active {
+  z-index: 10 !important;
+  transform: scale(1.1) translateY(-40px) rotate(0deg);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-height: none;
 }
 
 .services-content:hover {
@@ -599,7 +603,7 @@ img {
   transform: translateX(0.25rem);
 }
 
-.services-box {
+/* .services-box {
   position: fixed;
   top: 0;
   left: 0;
@@ -614,14 +618,42 @@ img {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
+} */
+
+.services-box {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* When card is active, show the full box */
+.services-content.active .services-box {
+  opacity: 1;
+  pointer-events: auto;
+  max-height: 1000px;
+  margin-top: 1rem;
 }
 
 .services-box-content {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 6px;
   position: relative;
   background-color: var(--container-color);
   padding: 1.5rem;
   border-radius: 0.5rem;
 }
+
+.services-box-content::-webkit-scrollbar {
+  width: 6px;
+}
+.services-box-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
 
 .services-box-services {
   row-gap: 1rem;
@@ -777,9 +809,9 @@ img {
   color: var(--first-color);
 }
 
-.swiper-container .swiper-pagination-testimonial {
+/* .swiper-container .swiper-pagination-testimonial {
   bottom: 0;
-}
+} */
 /* contact section  */
 .contact-container {
   row-gap: 3rem;
@@ -924,10 +956,6 @@ img {
 
   .home-blob {
     width: 180px;
-  }
-
-  .skills-name {
-    font-size: var(--small-font-size);
   }
 
   .qualification-data {
@@ -1202,41 +1230,279 @@ img {
     right: -3.5rem;
   }
 
-  .swiper-container-horizontal > .swiper-pagination-bullets {
-    bottom: -4.5rem;
-  }
 }
 
-/* .skills-slider-wrapper {
+/* Updated 3D Glassmorphism Card Styling (No Side Shadows) */
+.portfolio-content,
+.services-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.portfolio-content:hover,
+.services-content:hover {
+  transform: scale(1.03);
+}
+
+/* 🧊 Skills floating style */
+.skills-name {
+  padding: 10px 16px;
+  margin: 6px;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--title-color);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  display: inline-block;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-name:hover {
+  background-color: var(--first-color-alt);
+  transform: scale(1.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* 🃏 Base stack layout */
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   position: relative;
+  perspective: 1200px;
+  gap: 0; /* Overlap */
+  min-height: 500px;  
+}
+
+.services-content {
+  position: absolute;
+  width: 260px;
+  min-height: 340px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  transform-origin: center;
+  cursor: pointer;
+  z-index: 1;
+
+  /* ✅ New additions */
+  max-height: 600px;
+  overflow: auto;
+}
+
+
+/* 🃏 Position each card slightly rotated and offset */
+.services-content:nth-child(1) {
+  z-index: 3;
+  transform: rotate(-6deg) translateX(-40px);
+}
+.services-content:nth-child(2) {
+  z-index: 2;
+  transform: rotate(0deg) translateY(0px);
+}
+.services-content:nth-child(3) {
+  z-index: 1;
+  transform: rotate(6deg) translateX(40px);
+}
+
+/* 💫 On hover, cards float out */
+.services-container:hover .services-content {
+  transform: translateY(-20px) rotate(0deg) scale(1.02);
+  z-index: 2;
+}
+
+
+/* ============================= */
+/* 🚀 Updated Horizontal Skills Scroll with Flip & Navigation */
+/* ============================= */
+
+.skills-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 2rem 0;
+  background-color: transparent;
+}
+
+.skills-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.skills-track {
+  display: flex;
+  gap: 2rem;
+  animation: autoScroll 60s linear infinite;
+  width: max-content;
+  padding-bottom: 1rem;
+}
+
+
+@keyframes autoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.skill-card {
+  perspective: 1000px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.skill-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.skill-card:hover .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-front,
+.skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  color: #000;
+  font-weight: 500;
+  text-align: center;
+  padding: 0;
+}
+
+.skill-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* ensures the image fills and crops */
+  object-position: center;  /* optional: centers the focal point */
+  border-radius: 20px;      /* keep if you want rounded corners */
+  filter: brightness(1.2);
+}
+
+.skill-card-back {
+  transform: rotateY(180deg);
+  font-size: 0.9rem;
+  color: #111;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .skills-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
   border: none;
-  color: white;
-  cursor: pointer;
   padding: 0.5rem 1rem;
+  cursor: pointer;
   z-index: 10;
-  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  font-size: 1.5rem;
+  border-radius: 8px;
   transition: background 0.3s;
 }
 
 .skills-arrow:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .skills-arrow.left {
-  left: -1.5rem;
+  left: 0.5rem;
 }
 
 .skills-arrow.right {
-  right: -1.5rem;
+  right: 1.5rem;
 }
 
- */
+
+
+.space-section {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.space-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 200vh; /* double viewport height */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  pointer-events: none;
+  z-index: -3;
+}
+
+/* Layer styling — use actual space images */
+.layer-back {
+  background-image: url('Assets/space/stars-back.png');
+  transform: translateZ(-500px) scale(1.5);
+  z-index: -3;
+}
+.layer-mid {
+  background-image: url('Assets/space/nebula-mid.png');
+  transform: translateZ(-300px) scale(1.3);
+  z-index: -2;
+}
+.layer-front {
+  background-image: url('Assets/space/asteroids-front.png');
+  transform: translateZ(-100px) scale(1.1);
+  z-index: -1;
+}
+
+/* Content sits in front */
+.space-section .section-content {
+  position: relative;
+  z-index: 0;
+  background: transparent;
+}
+
+/* Fallback static parallax on mobile */
+@media (max-device-width: 768px) {
+  .space-layer {
+    position: absolute;
+    height: auto;
+    background-attachment: scroll;
+    transform: none;
+  }
+}
+
+
+/* 🔁 Smooth side-to-side sliding animation */
+@keyframes slideDiagonalUpRight {
+  0%, 100% {
+    transform: translate(-10px, 10px);  /* bottom-left */
+  }
+  50% {
+    transform: translate(10px, -10px);  /* top-right */
+  }
+}
+
+.slide-phone {
+  animation: slideDiagonalUpRight 3s ease-in-out infinite;
+}
+
