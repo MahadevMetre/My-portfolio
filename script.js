@@ -48,25 +48,41 @@ tabs.forEach((tab) => {
 // services box
 const boxViews = document.querySelectorAll(".services-box"),
   boxBtns = document.querySelectorAll(".services-button"),
-  boxCloses = document.querySelectorAll(".services-box-close");
-
-let box = function (boxClick) {
-  boxViews[boxClick].classList.add("active-box");
-};
+  boxCloses = document.querySelectorAll(".services-box-close"),
+  servicesContainer = document.querySelector(".services-container");
 
 boxBtns.forEach((boxBtn, i) => {
-  boxBtn.addEventListener("click", () => {
-    box(i);
+  boxBtn.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    const content = boxBtn.closest(".services-content");
+    const isActive = content.classList.contains("active") && boxViews[i].classList.contains("active-box");
+
+    // Remove active classes from all cards and boxes
+    boxViews.forEach((boxView) => boxView.classList.remove("active-box"));
+    document.querySelectorAll(".services-content").forEach((content) => content.classList.remove("active"));
+
+    // If the clicked card is not active, activate it; otherwise, keep it closed
+    if (!isActive) {
+      boxViews[i].classList.add("active-box");
+      content.classList.add("active");
+    }
   });
 });
 
 boxCloses.forEach((boxClose) => {
   boxClose.addEventListener("click", () => {
-    boxViews.forEach((boxView) => {
-      boxView.classList.remove("active-box");
-    });
+    boxViews.forEach((boxView) => boxView.classList.remove("active-box"));
+    document.querySelectorAll(".services-content").forEach((content) => content.classList.remove("active"));
   });
 });
+
+// Close any open cards when the user stops hovering over the services container
+if (servicesContainer) {
+  servicesContainer.addEventListener("mouseleave", () => {
+    boxViews.forEach((boxView) => boxView.classList.remove("active-box"));
+    document.querySelectorAll(".services-content").forEach((content) => content.classList.remove("active"));
+  });
+}
 
 //scroll section active link
 const sections = document.querySelectorAll("section[id]");
@@ -179,7 +195,6 @@ let swiperTestimonial = new Swiper(".testimonial-container", {
   },
 });
 
-
 // 🌌 3D Card Tilt
 VanillaTilt.init(document.querySelectorAll(".portfolio-content, .services-content, .skills-name"), {
   max: 15,
@@ -225,47 +240,3 @@ window.addEventListener('scroll', function () {
   document.querySelector('.layer-front').style.transform =
     `translateY(${scrollY * 0.6}px) scale(1.1)`;
 });
-
-
-// Fixed Services Modal Functionality
-// ADD THIS DEBUG CODE TO YOUR SCRIPT.JS
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('=== SERVICES DEBUG START ===');
-  
-  const serviceButtons = document.querySelectorAll('.services-button');
-  const serviceContents = document.querySelectorAll('.services-content');
-  const closeButtons = document.querySelectorAll('.services-box-close');
-  
-  console.log('Found elements:', {
-    buttons: serviceButtons.length,
-    contents: serviceContents.length,
-    closeButtons: closeButtons.length
-  });
-  
-  // Log button clicks
-  serviceButtons.forEach((btn, index) => {
-    btn.addEventListener('click', (e) => {
-      console.log(`Button ${index} clicked`);
-      console.log('Event prevented:', e.defaultPrevented);
-      
-      // Check if active class gets added
-      setTimeout(() => {
-        const hasActive = serviceContents[index]?.classList.contains('active');
-        console.log(`Content ${index} has active class:`, hasActive);
-        
-        if (hasActive) {
-          const box = serviceContents[index].querySelector('.services-box');
-          const styles = getComputedStyle(box);
-          console.log('Box styles:', {
-            opacity: styles.opacity,
-            maxHeight: styles.maxHeight,
-            pointerEvents: styles.pointerEvents
-          });
-        }
-      }, 100);
-    });
-  });
-  
-  console.log('=== SERVICES DEBUG END ===');
-});
-
