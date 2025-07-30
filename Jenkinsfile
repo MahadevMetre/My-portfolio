@@ -20,7 +20,7 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM',
                     branches: [[name: "*/${params.BRANCH_NAME}"]],
-                    userRemoteConfigs: [[url: 'https://github.com/YOUR_GITHUB_USERNAME/My-portfolio.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/MahadevMetre/My-portfolio.git']]
                 ])
             }
         }
